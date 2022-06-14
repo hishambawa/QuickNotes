@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MySql.EntityFrameworkCore.Extensions;
 
 namespace QuickNotes.Models
 {
@@ -10,7 +9,7 @@ namespace QuickNotes.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=157.230.241.112;user=hisham;password=pokerface0958;database=quick_notes");
+            optionsBuilder.UseMySql("server=157.230.241.112;user=hisham;password=pokerface0958;database=quick_notes", ServerVersion.Parse("8.0.29-mysql"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
