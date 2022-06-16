@@ -9,6 +9,24 @@
 
         public int UserId { get; set; }
         public virtual User User { get; set; }
+
+        public Note()
+        {
+
+        }
+
+        public Note(string Title, string Content)
+        {
+            this.Title = Title;
+            this.Content = Content;
+        }
+
+        public Note(string Title, string Content, User User)
+        {
+            this.Title = Title;
+            this.Content = Content;
+            this.User = User;
+        }
     }
 }
 

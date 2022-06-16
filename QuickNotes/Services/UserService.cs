@@ -1,4 +1,4 @@
-﻿using System;
+﻿using QuickNotes.DTO;
 using QuickNotes.Models;
 
 namespace QuickNotes.Services
@@ -13,24 +13,21 @@ namespace QuickNotes.Services
             _context.Database.EnsureCreated();
         }
 
-        public async Task<int> Login(User User)
+        public async Task<Response> Login(User User)
         {
-            List<User> Users = _context.Users.ToList();
+            User ExistingUser = _context.Users.FirstOrDefault(e => e.Username.Equals(User.Username));
 
-            foreach (User U in Users)
+            if (ExistingUser != null)
             {
-                if (U.Username.Equals(User.Username))
-                {
-                    return 1;
-                }
+                return new Response(1, ExistingUser.UserId, "User exists. Logging in");
             }
 
-            User NewUser = new User(Users.Count, User.Username);
+            User NewUser = new User(User.Username);
 
             _context.Add(NewUser);
             await _context.SaveChangesAsync();
 
-            return 2;
+            return new Response(1, NewUser.UserId, "User doesn't exist. Creating new user");
         }
     }
 }

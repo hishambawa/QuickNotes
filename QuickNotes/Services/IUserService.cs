@@ -1,10 +1,11 @@
-﻿using QuickNotes.Models;
+﻿using QuickNotes.DTO;
+using QuickNotes.Models;
 
 namespace QuickNotes.Services
 {
     public interface IUserService
     {
-        Task<int> Login(User User);
+        Task<Response> Login(User User);
     }
 }
 
