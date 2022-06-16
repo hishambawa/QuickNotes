@@ -19,16 +19,24 @@ namespace QuickNotes.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.UserId);
+                entity.Property(e => e.UserId).ValueGeneratedOnAdd();
                 entity.Property(e => e.Username).IsRequired();
+                //entity.HasMany(d => d.Notes)
+                //    .WithOne(p => p.User)
+                //    .HasForeignKey(d => d.NoteId);
+
             });
 
             modelBuilder.Entity<Note>(entity =>
             {
                 entity.HasKey(e => e.NoteId);
+                entity.Property(e => e.NoteId).ValueGeneratedOnAdd();
                 entity.Property(e => e.Title).IsRequired();
                 entity.Property(e => e.Content).IsRequired();
-                entity.HasOne(d => d.User)
-                  .WithMany(p => p.Notes);
+                entity.Property(e => e.CreatedDate).ValueGeneratedOnAddOrUpdate();
+                entity.HasOne(u => u.User)
+                    .WithMany(e => e.Notes)
+                    .HasForeignKey(e => e.UserId);
             });
         }
     }

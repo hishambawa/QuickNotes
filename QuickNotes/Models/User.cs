@@ -5,12 +5,12 @@
         public int UserId { get; set; }
         public string Username { get; set; }
 
-        public virtual List<Note> Notes { get; set; }
+        public virtual ICollection<Note> Notes { get; set; }
 
-        public User(int UserId, string Username)
+        public User(string Username)
         {
-            this.UserId = UserId;
             this.Username = Username;
+            this.Notes = new HashSet<Note>();
         }
 
     }
