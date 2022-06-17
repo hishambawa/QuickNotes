@@ -5,3 +5,7 @@
 .is-pink {
   background-color: pink !important;
 }
+
+.card-content {
+  min-height: 126px
+}

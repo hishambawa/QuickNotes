@@ -46,7 +46,7 @@ namespace QuickNotes.Services
                 return new Response(0, "Note with that ID doesn't exist");
             }
 
-            ExistingNote.Title = Note.Title;
+            //ExistingNote.Title = Note.Title;
             ExistingNote.Content = Note.Content;
 
             _context.Update(ExistingNote);

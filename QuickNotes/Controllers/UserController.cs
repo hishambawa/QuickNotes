@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using QuickNotes.DTO;
 using QuickNotes.Models;
 using QuickNotes.Services;
@@ -6,6 +7,7 @@ using QuickNotes.Services;
 namespace QuickNotes.Controllers
 {
     [ApiController]
+    [EnableCors]
     [Route("api/[controller]")]
     public class UserController
     {
