@@ -24,6 +24,11 @@ export class NotesService {
       .pipe(catchError(this.errorHandler));
   }
 
+  createNote(note: Note): Observable<Response> {
+    return this.httpClient.post<Response>(this.apiUrl + "/note", note, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
   deleteNote(noteId: number): Observable<Response> {
     return this.httpClient.delete<Response>(this.apiUrl + "/note/" + noteId)
       .pipe(catchError(this.errorHandler));

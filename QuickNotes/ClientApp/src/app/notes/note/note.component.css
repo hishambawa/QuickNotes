@@ -7,5 +7,10 @@
 }
 
 .card-content {
-  min-height: 126px
+  min-height: 126px;
+}
+
+.content {
+  width: 100%;
+  display: inline-block;
 }

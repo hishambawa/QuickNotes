@@ -11,6 +11,12 @@
   max-height: 300px;
 }
 
+.content {
+  width: 100%;
+  min-height: 72px;
+  display: inline-block;
+}
+
 @media(min-width: 768px) {
 
   .grid {

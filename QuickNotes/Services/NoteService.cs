@@ -27,7 +27,7 @@ namespace QuickNotes.Services
             _context.Add(NewNote);
             await _context.SaveChangesAsync();
 
-            return new Response(1, "Note was created");
+            return new Response(1, NewNote, "Note was created");
         }
 
         public async Task<Response> GetNotes(int UserId)
@@ -52,7 +52,7 @@ namespace QuickNotes.Services
             _context.Update(ExistingNote);
             await _context.SaveChangesAsync();
 
-            return new Response(1, "Note was updated successfully");
+            return new Response(1, ExistingNote, "Note was updated successfully");
         }
 
         public async Task<Response> DeleteNote(int NoteId)

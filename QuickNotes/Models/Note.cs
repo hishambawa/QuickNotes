@@ -1,4 +1,6 @@
-﻿namespace QuickNotes.Models
+﻿using Newtonsoft.Json;
+
+namespace QuickNotes.Models
 {
     public class Note
     {

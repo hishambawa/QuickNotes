@@ -4,9 +4,7 @@
     </header>
 
     <div class="card-content">
-        <p class="content" contenteditable="true">
-            {{ note.content }}
-        </p>
+        <p class="content" contenteditable="true" [innerHTML]="note.content"></p>
     </div>
     <footer class="card-footer">
         <!--<button class="card-footer-item button is-white has-text-success has-text-right" (click)="deleteNote(note.noteId)">
