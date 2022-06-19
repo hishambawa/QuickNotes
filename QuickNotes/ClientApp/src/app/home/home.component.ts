@@ -20,7 +20,6 @@ export class HomeComponent {
     this.noteService.getNotes(1).subscribe((response: Response) => {
       if (response.status == 1) {
         this.notes = response.data;
-        console.log(response.data);
       }
     });
   }
