@@ -14,6 +14,7 @@ export class HomeComponent {
   notes: Note[] = [];
   newNote: boolean = false;
   isLoading: boolean = false;
+  isInitializing: boolean = true;
 
   constructor(public noteService: NotesService) { }
 
@@ -21,6 +22,7 @@ export class HomeComponent {
     this.noteService.getNotes(1).subscribe((response: Response) => {
       if (response.status == 1) {
         this.notes = response.data;
+        this.isInitializing = false;
       }
     });
   }
