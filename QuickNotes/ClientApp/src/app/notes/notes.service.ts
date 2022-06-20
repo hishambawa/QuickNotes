@@ -10,7 +10,9 @@ import { Response } from '../response';
 })
 export class NotesService {
 
-  private apiUrl = "https://localhost:7192/api";
+  private apiUrl = "https://qnote.azurewebsites.net/api";
+  //private apiUrl = "https://localhost:7192/api";
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-type': 'application/json'

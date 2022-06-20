@@ -13,6 +13,7 @@ export class HomeComponent {
 
   notes: Note[] = [];
   newNote: boolean = false;
+  isLoading: boolean = false;
 
   constructor(public noteService: NotesService) { }
 
@@ -29,6 +30,8 @@ export class HomeComponent {
   }
 
   saveNote(): void {
+    this.isLoading = true;
+
     let noteTitle = (<HTMLInputElement>document.getElementById("note-title")).innerText;
     let noteContent = (<HTMLInputElement>document.getElementById("note-content")).innerHTML;
 
@@ -36,6 +39,7 @@ export class HomeComponent {
 
     this.noteService.createNote(note).subscribe((response: Response) => {
       if (response.status == 1) {
+        this.isLoading = false;
         this.notes.push(response.data);
         this.newNote = false;
       }

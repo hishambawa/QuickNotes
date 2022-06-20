@@ -10,6 +10,7 @@ import { NotesService } from '../notes.service';
 })
 export class NoteComponent implements OnInit {
   @Input() note!: Note;
+  isLoading: boolean = false;
 
   constructor(public noteService: NotesService) { }
 
@@ -17,17 +18,17 @@ export class NoteComponent implements OnInit {
   }
 
   deleteNote(noteId: number): void {
+    this.isLoading = true;
+
     if (confirm("Are you sure you want to delete this note?")) {
-      if (noteId == -1) {
-        location.reload();
-      }
-      else {
-        this.noteService.deleteNote(noteId).subscribe((response: Response) => {
-          if (response.status == 1) {
-            location.reload();
-          }
-        });
-      }
+
+      this.noteService.deleteNote(noteId).subscribe((response: Response) => {
+        if (response.status == 1) {
+          this.isLoading = false;
+          location.reload();
+        }
+      });
+
     }
 
   }

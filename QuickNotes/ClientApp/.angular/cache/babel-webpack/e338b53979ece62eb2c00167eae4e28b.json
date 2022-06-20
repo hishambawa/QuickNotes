@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Note {\n  constructor(title, content, userId) {\n    this.title = \"Title comes here\";\n    this.content = \"Contents of the note comes here. Click the button on the left below to save the note. --saved\";\n    this.title = title;\n    this.content = content;\n    this.userId = userId;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

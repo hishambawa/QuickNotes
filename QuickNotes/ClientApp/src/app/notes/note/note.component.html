@@ -10,7 +10,7 @@
         <!--<button class="card-footer-item button is-white has-text-success has-text-right" (click)="updateNote(note.noteId)">
             <i class="fa-solid fa-check"></i>
         </button>-->
-        <button class="card-footer-item button is-white has-text-danger has-text-right" (click)="deleteNote(note.noteId)" title="Delete Note">
+        <button class="card-footer-item button is-white has-text-danger has-text-right" [ngClass]="{'is-loading': isLoading == true}" (click)="deleteNote(note.noteId)" title="Delete Note">
             <i class="fa-solid fa-trash"></i>
         </button>
     </footer>
