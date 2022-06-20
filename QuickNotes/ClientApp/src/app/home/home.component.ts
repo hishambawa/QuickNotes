@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Note } from '../notes/note';
 import { NotesService } from '../notes/notes.service';
 import { Response } from '../response';
@@ -11,15 +12,19 @@ import { Response } from '../response';
 
 export class HomeComponent {
 
+  userId: number = -1;
   notes: Note[] = [];
   newNote: boolean = false;
   isLoading: boolean = false;
   isInitializing: boolean = true;
 
-  constructor(public noteService: NotesService) { }
+  constructor(public noteService: NotesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.noteService.getNotes(1).subscribe((response: Response) => {
+    const routeParams = this.route.snapshot.paramMap;
+    this.userId = Number(routeParams.get('userId'));
+
+    this.noteService.getNotes(this.userId).subscribe((response: Response) => {
       if (response.status == 1) {
         this.notes = response.data;
         this.isInitializing = false;
@@ -37,7 +42,7 @@ export class HomeComponent {
     let noteTitle = (<HTMLInputElement>document.getElementById("note-title")).innerText;
     let noteContent = (<HTMLInputElement>document.getElementById("note-content")).innerHTML;
 
-    let note = new Note(noteTitle, noteContent, 1);
+    let note = new Note(noteTitle, noteContent, this.userId);
 
     this.noteService.createNote(note).subscribe((response: Response) => {
       if (response.status == 1) {

@@ -1,12 +1,12 @@
 <nav class="navbar is-spaced is-transparent has-shadow">
     <div class="container">
         <div class="navbar-brand is-align-items-center is-justify-content-space-between">
-            <a class="navbar-item" ng-reflect-router-link="/" href="/">QuickNotes</a>
-            <button class="button is-rounded is-outlined is-info is-hidden-desktop">Sign out</button>
+            <p class="navbar-item">QuickNotes</p>
+            <button class="button is-rounded is-outlined is-dark is-hidden-desktop" (click)="exit()">Sign out</button>
         </div>
         <div id="menu" class="navbar-menu">
             <div class="navbar-end">
-                <button class="button is-rounded is-outlined is-info">Sign out</button>
+                <button class="button is-rounded is-outlined is-dark" (click)="exit()">Sign out</button>
             </div>
         </div>
     </div>

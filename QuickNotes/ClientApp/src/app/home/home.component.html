@@ -1,33 +1,39 @@
-<div class="grid py-6">
-    <app-note *ngFor="let note of notes" [note]="note"></app-note>
+<app-nav-menu></app-nav-menu>
 
-    <div class="card" *ngIf="newNote">
-        <header class="card-header">
-            <p class="card-header-title" contenteditable="true" id="note-title">Title comes here</p>
-        </header>
+<div class="container" style="min-height: calc(100vh - 300px)">
+    <div class="grid py-6">
+        <app-note *ngFor="let note of notes" [note]="note"></app-note>
 
-        <div class="card-content">
-            <p class="content" contenteditable="true" id="note-content">
-                Contents of the note comes here. Click the button on the left below to save the note.
-            </p>
+        <div class="card" *ngIf="newNote">
+            <header class="card-header">
+                <p class="card-header-title" contenteditable="true" id="note-title">Title comes here</p>
+            </header>
+
+            <div class="card-content">
+                <p class="content" contenteditable="true" id="note-content">
+                    Contents of the note comes here. Click the button on the left below to save the note.
+                </p>
+            </div>
+            <footer class="card-footer">
+                <button class="card-footer-item button is-white has-text-success has-text-right" [ngClass]="{'is-loading': isLoading}" (click)="saveNote()" title="Save note">
+                    <i class="fa-solid fa-check"></i>
+                </button>
+                <button class="card-footer-item button is-white has-text-danger has-text-right" (click)="discardNote()" title="Discard note">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </footer>
         </div>
-        <footer class="card-footer">
-            <button class="card-footer-item button is-white has-text-success has-text-right" [ngClass]="{'is-loading': isLoading}" (click)="saveNote()" title="Save note">
-                <i class="fa-solid fa-check"></i>
-            </button>
-            <button class="card-footer-item button is-white has-text-danger has-text-right" (click)="discardNote()" title="Discard note">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </footer>
-    </div>
 
-    <div class="is-flex is-justify-content-center is-align-items-center">
-        <button class="button is-dark is-large add-button" (click)="addNote()" title="Add note">
-            <span class="icon is-large">
-                <i class="fas fa-plus fa-3x"></i>
-            </span>
-        </button>
+        <div class="is-flex is-justify-content-center is-align-items-center">
+            <button class="button is-dark is-large add-button" (click)="addNote()" title="Add note">
+                <span class="icon is-large">
+                    <i class="fas fa-plus fa-3x"></i>
+                </span>
+            </button>
+        </div>
     </div>
 </div>
+
+<app-footer></app-footer>
 
 <div class="pageloader is-dark" [ngClass]="{'is-active': isInitializing}"><span class="title">Loading Notes</span></div>

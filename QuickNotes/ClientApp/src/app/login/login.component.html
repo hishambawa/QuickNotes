@@ -1,0 +1,25 @@
+<div class="container">
+
+    <div class="field has-addons">
+        <div class="control has-icons-left is-expanded">
+            <input class="input" [ngClass]="{'is-danger': isEmpty}" type="text" placeholder="Username" id="username">
+            <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+            </span>
+            <p class="help" *ngIf="!isEmpty">Enter an existing username to login <br /> or enter a new username to create an account</p>
+            <p class="help" *ngIf="isEmpty">Username can't be empty or a space <br /> <br /></p>
+
+        </div>
+
+        <div class="control">
+            <!--<button class="button is-rounded is-dark" [ngClass]="{'is-loading': isLoading}" (click)="login()">Go</button>-->
+            <button class="button is-rounded is-dark" [ngClass]="{'is-loading': isLoading}" (click)="login()">
+                <span class="icon is-small">
+                    <i class="fas fa-angle-right"></i>
+                </span>
+            </button>
+        </div>
+
+    </div>
+
+</div>

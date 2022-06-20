@@ -27,6 +27,18 @@
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Microsoft.AspNet.WebApi.Cors" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="ClientApp\dist\fa-solid-900.3a463ec33b4fe9f7.ttf" />
+    <None Remove="ClientApp\dist\index.html" />
+    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
+    <None Remove="ClientApp\dist\fa-regular-400.da02cb7e372f16a2.ttf" />
+    <None Remove="ClientApp\dist\fa-brands-400.7fa789ab57acb632.ttf" />
+    <None Remove="ClientApp\dist\fa-v4compatibility.ee06c6f803f379bb.woff2" />
+    <None Remove="ClientApp\dist\polyfills.2a426724d99c5733.js" />
+    <None Remove="ClientApp\dist\fa-brands-400.859fc3887485de84.woff2" />
+    <None Remove="ClientApp\dist\fa-solid-900.40ddefd79fe7af45.woff2" />
+    <None Remove="ClientApp\dist\fa-regular-400.2ffd018f0eda6f7b.woff2" />
+    <None Remove="ClientApp\dist\fa-v4compatibility.924588dc97e66b08.ttf" />
+    <None Remove="ClientApp\dist\runtime.7b57b5f406721397.js" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
